@@ -10,6 +10,7 @@ Bioinformatic Analysis Workflow Documentation
 All computational analyses were performed using R (version 4.4.1) within the RStudio (version 2023.12.1+402) environment on a Windows 10 operating system. The workflow leveraged several R packages and external tools:
 
 R Packages:
+
 -ShortRead (v1.62.0): For reading FASTQ files.
 -Biostrings (v2.72.1): For sequence manipulation.
 -dplyr (v1.1.4) and tidyr (v1.3.1): For data manipulation.
