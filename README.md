@@ -35,9 +35,9 @@ Raw sequence reads should be stored in FASTQ format, which includes nucleotide s
 
 -Reference Database: "unique_list.fasta", a curated database of nucleotide sequences.
 
--Localization Data: "localization2.csv" ([32], Nat Commun 14, 4401, 2023). Format: (Gene ID,Localization,Product Description,Category,CtermTryptag,NtermTryptag).
+-Localization Data: "localization2.csv" (Nat Commun 14, 4401, 2023). Format: (Gene ID,Localization,Product Description,Category,CtermTryptag,NtermTryptag).
 
--Protein Expression Data: "protein_level.csv" ([43], Wellcome Open Res, 2023). Fromat : (GeneID,bsf,pcf).
+-Protein Expression Data: "protein_level.csv" (Wellcome Open Res, 2023). Fromat : (GeneID,bsf,pcf).
 
 -Functional Annotations: "filtered_results.csv" with InterProScan domain annotations. Format: (Gene ID,InterproScanID,Definition,start,end,E_value).
 
