@@ -31,7 +31,7 @@ External Tools:
 The sequencing data from Polymerase Chain Reaction (PCR) products sequenced using Oxford Nanopore Technologies (ONT).
 Raw sequence reads should be stored in FASTQ format, which includes nucleotide sequences and their associated quality scores.
 
--Sequencing Data: .FASTQ files generated from nanopore sequencing of PCR products.
+-Sequencing Data: .FASTQ files generated from nanopore sequencing of PCR products. Should be in the script directory. 
 
 -Reference Database: "unique_list.fasta", a curated database of nucleotide sequences.
 
