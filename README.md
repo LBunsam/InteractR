@@ -4,6 +4,8 @@
 InteractR is a .R bassed script meant for multi dimesional analisis of Nanopore reads especifically tailored for Trypanozoma brucei (Tb). Meant to be used for analysis of reads from Yeast Double Hybrids (Y2H) protein-protein interaction essays. The pipeline is designed to take raw Nanopore reads, do quality control, remove of overrepresented sequences and alginment of the processed reads to a Tb. genome. The script requires the utilization of several files containing expresion, subcellular localization, and domain data for the visualization of graphs thorugh the Shiny App.
 
 
+
+
 Bioinformatic Analysis Workflow Documentation
 
 1. Computational Environment
@@ -23,6 +25,8 @@ R Packages:
 External Tools:
 -BLAST+ (version 2.15.0): For sequence alignment, specifically the blastn and makeblastdb commands.
 
+
+
 2. Data Acquisition
 The sequencing data from Polymerase Chain Reaction (PCR) products sequenced using Oxford Nanopore Technologies (ONT).
 Raw sequence reads should be stored in FASTQ format, which includes nucleotide sequences and their associated quality scores.
@@ -37,6 +41,8 @@ Raw sequence reads should be stored in FASTQ format, which includes nucleotide s
 
 -Functional Annotations: "filtered_results.csv" with InterProScan domain annotations. Format: (Gene ID,InterproScanID,Definition,start,end,E_value).
 
+
+
 3. Sequence Processing Workflow
 
 3.1. FASTQ to FASTA Conversion
@@ -47,6 +53,8 @@ A reference FASTA file (unique_list.fasta) contains a curated set of sequences f
 
 3.3. BLASTN Analysis
 For each converted FASTA file, a BLASTN search was performed against the Unique-CC-DB database using the blastn command. The output is formatted as a tabular file (-outfmt 6) containing the query sequence ID, subject (prey) sequence ID, and E-value. Results are saved as text files (e.g., <gene_id>_blast_results.txt).
+
+
 
 4. BLAST Result Processing
 
@@ -59,6 +67,8 @@ Sequences listed as contaminants (in contaminants.txt) are filtered out from the
 4.3. Data Consolidation
 Results from all FASTQ files are combined into a single dataframe, ensuring no duplicate bait-prey pairs remain. The final interactors are saved to a CSV file (all_final_interactors.csv).
 
+
+
 5. Integration of Additional Data
 
 5.1. Subcellular Localization
@@ -69,6 +79,8 @@ Protein expression data from protein_level.csv ([43], Wellcome Open Res, 2023) i
 
 5.3. InterProScan Annotations
 Functional annotations from filtered_results.csv are integrated to identify protein domains associated with the prey sequences, filtering out empty or invalid entries.
+
+
 
 6. Data Visualization
 The uses an interactive Shiny application developed to visualize the processed data. The application includes the following functionalities:
