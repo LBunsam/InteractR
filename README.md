@@ -1,4 +1,4 @@
-[INTERACTR]
+# INTERACTR
 
 
 InteractR is a .R bassed script meant for multi dimesional analisis of Nanopore reads especifically tailored for Trypanozoma brucei (Tb). Meant to be used for analysis of reads from Yeast Double Hybrids (Y2H) protein-protein interaction essays. The pipeline is designed to take raw Nanopore reads, do quality control, remove of overrepresented sequences and alginment of the processed reads to a Tb. genome. The script requires the utilization of several files containing expresion, subcellular localization, and domain data for the visualization of graphs thorugh the Shiny App.
