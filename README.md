@@ -1,10 +1,8 @@
+[INTERACTR]
 
-InteractR is a .R bassed script meant for multi dimesional analisis of Nanopore reads especifically tailored for Trypanozoma brucei (Tb). Meant to be used for analysis of reads from Yeast Double Hybrids (Y2H) protein-protein interaction essays. 
 
+InteractR is a .R bassed script meant for multi dimesional analisis of Nanopore reads especifically tailored for Trypanozoma brucei (Tb). Meant to be used for analysis of reads from Yeast Double Hybrids (Y2H) protein-protein interaction essays. The pipeline is designed to take raw Nanopore reads, do quality control, remove of overrepresented sequences and alginment of the processed reads to a Tb. genome. The script requires the utilization of several files containing expresion, subcellular localization, and domain data for the visualization of graphs thorugh the Shiny App.
 
-The script requires the utilization of several files containing expresion, subcellular localization, and domain data.
-
-The pipeline is designed to take raw Nanopore reads, do quality control, remove of overrepresented sequences and alginment of the processed reads to a Tb. genome. In the end it counts the reads to a user-supplied .gtf file and produces a tab-sepparated file summarizing its results. Users should only specify in the beginning parameters which are asked for in a command-line dialogue.
 
 Bioinformatic Analysis Workflow Documentation
 
@@ -38,7 +36,7 @@ Raw sequence reads should be stored in FASTQ format, which includes nucleotide s
 
 -Functional Annotations: "filtered_results.csv" with InterProScan domain annotations. Format: (Gene ID,InterproScanID,Definition,start,end,E_value).
 
-4. Sequence Processing Workflow
+3. Sequence Processing Workflow
 
 3.1. FASTQ to FASTA Conversion
 The script automatically detects all FASTQ files in the working directory with the .fastq pattern. Each FASTQ file should contain the reads sequences from a genes that interact in the essay. ShortRead package is used to read, extract, reformat the headers from FASTQ (@) to FASTA (>) format. The resulting sequences were saved as FASTA files using the Biostrings package.
@@ -50,6 +48,7 @@ A reference FASTA file (unique_list.fasta) contains a curated set of sequences f
 For each converted FASTA file, a BLASTN search was performed against the Unique-CC-DB database using the blastn command. The output is formatted as a tabular file (-outfmt 6) containing the query sequence ID, subject (prey) sequence ID, and E-value. Results are saved as text files (e.g., <gene_id>_blast_results.txt).
 
 4. BLAST Result Processing
+
 4.1. Analysis and Filtering
 BLAST results are parsed using the readr package, explicitly defining columns as Query, Prey, and E_value. For each queried sequence, only the prey with the lowest E-value is retained using the dplyr package to ensure high-confidence matches.
 
