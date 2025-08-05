@@ -6,9 +6,9 @@ InteractR is a .R bassed script meant for multi dimesional analisis of Nanopore 
 
 
 
-Bioinformatic Analysis Workflow Documentation
+# Bioinformatic Analysis Workflow 
 
-1. Computational Environment
+## 1. Computational Environment
 All computational analyses were performed using R (version 4.4.1) within the RStudio (version 2023.12.1+402) environment on a Windows 10 operating system. The workflow leveraged several R packages and external tools:
 
 R Packages:
@@ -27,7 +27,7 @@ External Tools:
 
 
 
-2. Data Acquisition
+## 2. Data Acquisition
 The sequencing data from Polymerase Chain Reaction (PCR) products sequenced using Oxford Nanopore Technologies (ONT).
 Raw sequence reads should be stored in FASTQ format, which includes nucleotide sequences and their associated quality scores.
 
@@ -43,7 +43,7 @@ Raw sequence reads should be stored in FASTQ format, which includes nucleotide s
 
 
 
-3. Sequence Processing Workflow
+## 3. Sequence Processing Workflow
 
 3.1. FASTQ to FASTA Conversion
 The script automatically detects all FASTQ files in the working directory with the .fastq pattern. Each FASTQ file should contain the reads sequences from a genes that interact in the essay. ShortRead package is used to read, extract, reformat the headers from FASTQ (@) to FASTA (>) format. The resulting sequences were saved as FASTA files using the Biostrings package.
@@ -56,7 +56,7 @@ For each converted FASTA file, a BLASTN search was performed against the Unique-
 
 
 
-4. BLAST Result Processing
+## 4. BLAST Result Processing
 
 4.1. Analysis and Filtering
 BLAST results are parsed using the readr package, explicitly defining columns as Query, Prey, and E_value. For each queried sequence, only the prey with the lowest E-value is retained using the dplyr package to ensure high-confidence matches.
@@ -69,7 +69,7 @@ Results from all FASTQ files are combined into a single dataframe, ensuring no d
 
 
 
-5. Integration of Additional Data
+## 5. Integration of Additional Data
 
 5.1. Subcellular Localization
 Localization data from localization2.csv ([32] Nat Commun 14, 4401, 2023) is merged with the BLAST results to annotate prey sequences with their subcellular localization. Missing or unknown localizations were labeled as "Unknown". 
@@ -82,7 +82,7 @@ Functional annotations from filtered_results.csv are integrated to identify prot
 
 
 
-6. Data Visualization
+## 6. Data Visualization
 The uses an interactive Shiny application developed to visualize the processed data. The application includes the following functionalities:
 
 6.1. UpSet Plot
